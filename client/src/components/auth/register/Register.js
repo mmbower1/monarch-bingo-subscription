@@ -1,8 +1,13 @@
 import React, { Fragment, useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { register } from '../../../actions/auth'
 import PropTypes from 'prop-types';
+// styles
+import { DarkOverlay } from '../../landing/Landing.styles';
+import { RegisterContainer, RegisterInner } from './Register.styles';
+import { Footer } from '../../footer/Footer.styles';
+// actions
+import { register } from '../../../actions/auth'
 // import axios from 'axios';
 
 const Register = ({ register, isAuthenticated }) => {
@@ -32,65 +37,70 @@ const Register = ({ register, isAuthenticated }) => {
     }
 
     return (
-        <Fragment>
-            <p className="lead"><i className="fas fa-user"></i> Create Your Account</p>
-            <form className="form" onSubmit={e => onSubmit(e)}>
-                <div className="form-group">
-                    <input
-                        type="text"
-                        placeholder="Name"
-                        name="name"
-                        value={name}
-                        onChange={(e) => onChange(e)}
-                        required
-                    />
-                </div>
-                <div className="form-group">
-                    <input
-                        type="email"
-                        placeholder="Email Address"
-                        name="email"
-                        value={email}
-                        onChange={(e) => onChange(e)}
-                        required
-                    />
-                </div>
-                <div className="form-group">
-                    <input
-                        type="text"
-                        placeholder="BTC Address"
-                        name="btcAddress"
-                        minLength="34"
-                        value={btcAddress}
-                        onChange={(e) => onChange(e)}
-                    />
-                </div>
-                <div className="form-group">
-                    <input
-                        type="password"
-                        placeholder="Password"
-                        name="password"
-                        minLength="6"
-                        value={password}
-                        onChange={(e) => onChange(e)}
-                    />
-                </div>
-                <div className="form-group">
-                    <input
-                        type="password"
-                        placeholder="Confirm Password"
-                        name="password2"
-                        minLength="6"
-                        value={password2}
-                        onChange={(e) => onChange(e)}
-                    />
-                </div>
-                <input type="submit" className="btn btn-primary" value="Register" />
-            </form>
-            <p className="my-1">
-                Already have an account? <Link to="login.html">Sign In</Link>
-            </p>
-        </Fragment>
+        <RegisterContainer>
+            <DarkOverlay>
+                <RegisterInner>
+                    <p className="lead"><i className="fas fa-user"></i> Create Your Account</p>
+                    <form className="form" onSubmit={e => onSubmit(e)}>
+                        <div className="form-group">
+                            <input
+                                type="text"
+                                placeholder="Name"
+                                name="name"
+                                value={name}
+                                onChange={(e) => onChange(e)}
+                                required
+                            />
+                        </div>
+                        <div className="form-group">
+                            <input
+                                type="email"
+                                placeholder="Email Address"
+                                name="email"
+                                value={email}
+                                onChange={(e) => onChange(e)}
+                                required
+                            />
+                        </div>
+                        <div className="form-group">
+                            <input
+                                type="text"
+                                placeholder="BTC Address"
+                                name="btcAddress"
+                                minLength="34"
+                                value={btcAddress}
+                                onChange={(e) => onChange(e)}
+                            />
+                        </div>
+                        <div className="form-group">
+                            <input
+                                type="password"
+                                placeholder="Password"
+                                name="password"
+                                minLength="6"
+                                value={password}
+                                onChange={(e) => onChange(e)}
+                            />
+                        </div>
+                        <div className="form-group">
+                            <input
+                                type="password"
+                                placeholder="Confirm Password"
+                                name="password2"
+                                minLength="6"
+                                value={password2}
+                                onChange={(e) => onChange(e)}
+                            />
+                        </div>
+                        <input type="submit" className="btn btn-primary" value="Register" />
+                    </form>
+                    <p className="my-1">
+                        Already have an account? <Link to="/login">Sign In</Link>
+                    </p>
+                    <Footer>© 2019 Copyright Bitcoin Bingo, all rights reserved</Footer>
+                </RegisterInner>
+            </DarkOverlay>
+        </RegisterContainer>
     )
 }
 

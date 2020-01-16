@@ -5,10 +5,12 @@ import setAuthToken from './utils/setAuthToken';
 // actions
 import { loadUser } from './actions/auth'
 // components
+import Dashboard from './components/dashboard/Dashboard';
 import Landing from './components/landing/Landing';
 import Navbar from './components/navbar/Navbar';
 import Login from './components/auth/login/Login';
 import Register from './components/auth/register/Register';
+import PrivateRoute from './components/routing/PrivateRoute';
 // redux
 import { Provider } from 'react-redux';
 import store from './store';
@@ -30,6 +32,7 @@ const App = () => {
           <Route exact path='/' component={Landing} />
           <section className='container'>
             <Switch>
+              <PrivateRoute exact path='/dashboard' component={Dashboard} />
               <Route exact path='/login' component={Login} />
               <Route exact path='/register' component={Register} />
             </Switch>
