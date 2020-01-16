@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { check, validationResult } = require('express-validator');
 const User = require('../../models/User');
+const bcrypt = require('bcryptjs');
 const gravatar = require('gravatar');
 const jwt = require('jsonwebtoken');
 const config = require('config');
@@ -21,13 +22,13 @@ router.post(
 		const errors = validationResult(req);
 		if (!errors.isEmpty()) {
 			return res.status(400).json({ errors: errors.array() });
-    }
+		}
 		const { name, email, btcAddress, password } = req.body;
 		try {
 			// see if user exists
 			let user = await User.findOne({ email }, { unqiue: true });
 			if (user) {
-				return res.status(400).json({ errors: [ { msg: 'Email already taken!' } ] });
+				return res.status(400).json({ errors: [{ msg: 'Email already taken!' }] });
 			}
 
 			// gravatar
@@ -37,16 +38,21 @@ router.post(
 				d: 'mm'
 			});
 
-      // create new instance
+			// create new instance, needs to be before bcrypt
 			user = new User({
 				name,
 				email,
 				btcAddress,
 				password,
 				avatar
-      });
-      // save instance to mongo
-      await user.save()
+			});
+
+			// bcrypt password
+			const salt = await bcrypt.genSalt(10);
+			user.password = await bcrypt.hash(password, salt);
+
+			// save instance to mongo
+			await user.save()
 
 			// return json webtoken
 			const payload = {
