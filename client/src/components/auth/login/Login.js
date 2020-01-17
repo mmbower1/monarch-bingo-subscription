@@ -3,11 +3,13 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 // styles
-import { DarkOverlay, FormGroupContainer } from '../../landing/Landing.styles';
-import { LoginContainer, LoginInner } from './Login.styles';
+import { DarkOverlay, FormGroupContainer, OrangeButton } from '../../landing/Landing.styles';
+import { BlackBox, LoginContainer, LoginInner } from './Login.styles';
 import { Footer } from '../../footer/Footer.styles';
 // actions
 import { login } from '../../../actions/auth';
+// components
+import Navbar from '../../navbar/Navbar'
 // import axios from 'axios';
 
 const Login = ({ login, isAuthenticated }) => {
@@ -31,9 +33,14 @@ const Login = ({ login, isAuthenticated }) => {
 
     return (
         <LoginContainer>
+            <Navbar />
             <DarkOverlay>
+            <br />
+            <br />
+            <br />
+            <br />
                 <LoginInner>
-                    <p className="lead"><i className="fas fa-user"></i> Sign In</p>
+                    <p className="title"> WELCOME</p>
                     <form className="form" onSubmit={e => onSubmit(e)}>
                         <FormGroupContainer>
                             <input
@@ -55,11 +62,15 @@ const Login = ({ login, isAuthenticated }) => {
                                 onChange={(e) => onChange(e)}
                             />
                         </FormGroupContainer>
-                        <input type="submit" className="btn btn-primary" value="Login" />
+                        <OrangeButton>
+                            <input type="submit" value="LOGIN" />
+                        </OrangeButton>
+                        <br />
+                        <h4>Forgot Password?</h4>
                     </form>
-                    <p className="my-1">
-                        Don't have an account? <Link to="/register">Sign Up</Link>
-                    </p>
+                    <BlackBox>
+                        Don't have an account? <br /><Link to="/register">Sign Up</Link>
+                    </BlackBox>
                     <Footer>© 2019 Copyright Bitcoin Bingo, all rights reserved</Footer>
                 </LoginInner>
             </DarkOverlay>

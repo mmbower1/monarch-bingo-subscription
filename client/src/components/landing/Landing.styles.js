@@ -17,9 +17,9 @@ export const FormGroupContainer = styled.div`
 `;
 
 export const LandingContainer = styled.div`
+    height: 100vh;
     position: relative;
     /* background: url('../img/showcase.jpg') no-repeat center center/cover; */
-    height: 100vh;
 `;
 
 export const LandingInner = styled.div`
@@ -32,4 +32,20 @@ export const LandingInner = styled.div`
     margin: auto;
     text-align: center;
     width: 80%;
+`;
+
+export const OrangeButton = styled.div`
+    border-radius: 6px;
+    background: #ff9501;
+	color: #fff;
+    font-size: 20px;
+    margin: auto;
+    margin-top: 15px;
+	padding: 11px;
+	width: 170px;
+`;
+
+export const Writing = styled.p`
+    font-size: 20px;
+    line-height: 35px;
 `;

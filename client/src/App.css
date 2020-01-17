@@ -26,64 +26,26 @@ a {
   color: #333;
 }
 
+#bingo-logo-landing {
+  height: 360px;
+  margin-bottom: 50px;
+  width: 500px;
+}
+#bitcoin-bingo-navbar {
+  height: 220px;
+  width: 290px;
+}
+
 body {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
   background-color: #fff;
   color: #333;
 }
 
-.btn-primary,
-.bg-primary,
-.badge-primary,
-.alert-primary {
-  background: var(--primary-color);
-  color: #fff;
-}
-
-.btn-light,
-.bg-light,
-.alert-light {
-  background: var(--light-color);
-  color: #333;
-}
-
-.btn-dark,
-.bg-dark,
-.alert-dark {
-  background: var(--dark-color);
-  color: #fff;
-}
-
-.btn-danger,
-.bg-danger,
-.alert-danger {
-  background: var(--danger-color);
-  color: #fff;
-}
-
-.btn-success,
-.bg-success,
-.alert-success {
-  background: var(--success-color);
-  color: #fff;
-}
-
-.btn-white,
-.bg-white,
-.alert-white {
-  background: #fff;
-  color: #333;
-  border: #ccc solid 1px;
-}
-
 .btn:hover {
   opacity: 0.8;
-}
-
-.bg-light {
-  border: #ccc solid 1px;
 }
 
 /* Utilities */
@@ -96,14 +58,6 @@ body {
   margin-bottom: 3rem;
 } */
 
-ul {
-  list-style: none;
-}
-
-img {
-  width: 100%;
-}
-
 .btn {
   display: inline-block;
   background: var(--light-color);
@@ -115,6 +69,10 @@ img {
   margin-right: 0.5rem;
   transition: opacity 0.2s ease-in;
   outline: none;
+}
+
+img {
+  width: 100%;
 }
 
 /* Forms */
@@ -134,11 +92,13 @@ img {
 .form input[type='date'],
 .form select,
 .form textarea {
+  border: 1px solid #ccc;
+  border-radius: 4px;
   display: block;
   width: 100%;
-  padding: 0.4rem;
+  padding: 10px;
   font-size: 1.2rem;
-  border: 1px solid #ccc;
+  width: 500px;
 }
 
 .form input[type='submit'],
@@ -146,14 +106,24 @@ button {
   font: inherit;
 }
 
-.line {
-  height: 1px;
-  background: #ccc;
-  margin: 1.5rem 0;
+.guest-links {
+  border-radius: 17px;
+	border: 2px solid #cee0d0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.guest-links-landing {
+  border-radius: 17px;
+	border: 2px solid #cee0d0;
+  cursor: pointer;
+  margin-left: 1450px;
+  font-size: 20px;
 }
 
 /* Navbar */
 .navbar {
+  background-color: #004A60;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -193,6 +163,10 @@ button {
 
 .text-dark {
   color: var(--dark-color);
+}
+
+.title {
+  font-size: 50px;
 }
 
 /* Mobile Styles */

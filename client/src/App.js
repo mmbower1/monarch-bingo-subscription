@@ -28,7 +28,6 @@ const App = () => {
     <Provider store={store}>
       <Router>
         <Fragment>
-          <Navbar />
           <Route exact path='/' component={Landing} />
           <section className='container'>
             <Switch>

@@ -2,36 +2,36 @@ import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import logo from '../../img/bitcoinbingologo.png'
+// actions
 import { logout } from '../../actions/auth'
 
 
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     const authLinks = (
         <ul>
-            <li>
-                <a onClick={logout}>
-                    <i className='fas fa-sign-out-alt' />{' '}
-                    <span className='hide-sm'>Logout</span>
-                </a>
-            </li>
+            <a onClick={logout}>
+                <i className='fas fa-sign-out-alt' />{' '}
+                <span className='hide-sm'>Logout</span>
+            </a>
         </ul>
     )
 
     const guestLinks = (
-        <ul>
-            <li><Link to="/login">Login</Link></li>
-            <li><Link to="/register">Register</Link></li>
+        <ul className='guest-links'>
+            <ul><Link to="/login">Login</Link></ul>
+            <ul><Link to="/register">/ &nbsp;&nbsp;&nbsp;Register</Link></ul>
         </ul>
     )
 
     return (
-        <nav className="navbar bg-dark">
+        <nav className="navbar">
             <h1>
-                <Link to="/"><i className="fas fa-code"></i> Bitcoin Bingo</Link>
+                <Link to="/"><img id='auth-logo' src={logo}></img></Link>
             </h1>
-    { !loading && (
-        <Fragment>{ isAuthenticated ? authLinks : guestLinks }</Fragment>
-    )}
+            { !loading && (
+                <Fragment>{ isAuthenticated ? authLinks : guestLinks }</Fragment>
+            )}
         </nav>
     )
 }

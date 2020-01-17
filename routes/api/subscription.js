@@ -15,7 +15,7 @@ const SendXRestApi = require('send_x_rest_api');
 router.post(
     '/',
     [
-        check('username', 'Username is required').not().isEmpty(),
+        check('username', 'Name is required').not().isEmpty(),
         check('email', 'Please include a valid email').isEmail(),
     ],
     async (req, res) => {
@@ -39,10 +39,10 @@ router.post(
             // see if email exists
             if (user) {
                 console.log(' ');
-                console.log("==> User has already subscribed!!");
+                console.log("==> User has already subscribed!");
                 return res.status(200).json({ message: 'User already subscribed.', success: false })
             } else {
-                /////////////////////////////////// SENDX START /////////////////////////////////////////////
+                // SENDX START
                 const sendxAPI = new SendXRestApi.ContactApi()
                 const sendxAPIkey = "u2jsfMKaG5QtEdQUjKq6";
                 const sendxTeamId = "55bWYotIVwQvh6K0Rxak5l";

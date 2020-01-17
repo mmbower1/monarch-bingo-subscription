@@ -3,11 +3,14 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 // styles
-import { DarkOverlay } from '../../landing/Landing.styles';
+import { DarkOverlay, FormGroupContainer, OrangeButton } from '../../landing/Landing.styles';
+import { BlackBox } from '../login/Login.styles';
 import { RegisterContainer, RegisterInner } from './Register.styles';
 import { Footer } from '../../footer/Footer.styles';
 // actions
 import { register } from '../../../actions/auth'
+// components
+import Navbar from '../../navbar/Navbar'
 // import axios from 'axios';
 
 const Register = ({ register, isAuthenticated }) => {
@@ -38,11 +41,12 @@ const Register = ({ register, isAuthenticated }) => {
 
     return (
         <RegisterContainer>
+            <Navbar />
             <DarkOverlay>
                 <RegisterInner>
-                    <p className="lead"><i className="fas fa-user"></i> Create Your Account</p>
+                    <p className="title"> CREATE YOUR ACCOUNT</p>
                     <form className="form" onSubmit={e => onSubmit(e)}>
-                        <div className="form-group">
+                        <FormGroupContainer>
                             <input
                                 type="text"
                                 placeholder="Name"
@@ -51,8 +55,8 @@ const Register = ({ register, isAuthenticated }) => {
                                 onChange={(e) => onChange(e)}
                                 required
                             />
-                        </div>
-                        <div className="form-group">
+                        </FormGroupContainer>
+                        <FormGroupContainer>
                             <input
                                 type="email"
                                 placeholder="Email Address"
@@ -61,8 +65,8 @@ const Register = ({ register, isAuthenticated }) => {
                                 onChange={(e) => onChange(e)}
                                 required
                             />
-                        </div>
-                        <div className="form-group">
+                        </FormGroupContainer>
+                        <FormGroupContainer>
                             <input
                                 type="text"
                                 placeholder="BTC Address"
@@ -71,8 +75,8 @@ const Register = ({ register, isAuthenticated }) => {
                                 value={btcAddress}
                                 onChange={(e) => onChange(e)}
                             />
-                        </div>
-                        <div className="form-group">
+                        </FormGroupContainer>
+                        <FormGroupContainer>
                             <input
                                 type="password"
                                 placeholder="Password"
@@ -81,8 +85,8 @@ const Register = ({ register, isAuthenticated }) => {
                                 value={password}
                                 onChange={(e) => onChange(e)}
                             />
-                        </div>
-                        <div className="form-group">
+                        </FormGroupContainer>
+                        <FormGroupContainer>
                             <input
                                 type="password"
                                 placeholder="Confirm Password"
@@ -91,12 +95,14 @@ const Register = ({ register, isAuthenticated }) => {
                                 value={password2}
                                 onChange={(e) => onChange(e)}
                             />
-                        </div>
-                        <input type="submit" className="btn btn-primary" value="Register" />
+                        </FormGroupContainer>
+                        <OrangeButton>
+                            <input type="submit" value="REGISTER" />
+                        </OrangeButton>
                     </form>
-                    <p className="my-1">
-                        Already have an account? <Link to="/login">Sign In</Link>
-                    </p>
+                    <BlackBox>
+                        Already have an account? <br /><Link to="/login">Sign In</Link>
+                    </BlackBox>
                     <Footer>© 2019 Copyright Bitcoin Bingo, all rights reserved</Footer>
                 </RegisterInner>
             </DarkOverlay>

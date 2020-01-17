@@ -27,3 +27,13 @@ export const LoginInner = styled.div`
     text-align: center;
     width: 80%;
 `;
+
+export const BlackBox = styled.div`
+    background-color: #000000;
+    border-radius: 4px;
+    height: 120px;
+    margin-top: 65px;
+    opacity: 50%;
+    padding-top: 20px;
+    width: 25%;
+`;
