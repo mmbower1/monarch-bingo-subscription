@@ -8,11 +8,12 @@ import { BlackBox, LoginContainer, LoginInner } from './Login.styles';
 import { Footer } from '../../footer/Footer.styles';
 // actions
 import { login } from '../../../actions/auth';
+// import { setAlert } from '../../../actions/alert';
 // components
 import Navbar from '../../navbar/Navbar'
 // import axios from 'axios';
 
-const Login = ({ login, isAuthenticated }) => {
+const Login = ({ login, isAuthenticated, setAlert }) => {
     const [formData, setFormData] = useState({
         email: '',
         password: ''
@@ -79,7 +80,8 @@ const Login = ({ login, isAuthenticated }) => {
 // props get added here
 Login.propTypes = {
     login: PropTypes.func.isRequired,
-    isAuthenticated: PropTypes.bool
+    isAuthenticated: PropTypes.bool,
+    // setAlert: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = state => ({

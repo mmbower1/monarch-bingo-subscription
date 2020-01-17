@@ -73,4 +73,25 @@ router.post(
 	}
 );
 
+// @route    PUT api/users
+// @desc     1. Edit Name, Btc
+// @access   Private
+router.put('/:id', async (req, res) => {
+	const errors = validationResult(req);
+	if (!errors.isEmpty()) {
+	  return res.status(400).json({ errors: errors.array() })
+	}
+	const user = await User.findByIdAndUpdate(req.params.id, req.body, {
+	  new: true,
+	  runValidators: true
+	});
+	if (!user) {
+	  // using errorResponse instead of: return res.status(400).json({ success: false });
+	  return res.status(200).send(`User not found with id of ${req.params.id}`, 404);
+	}
+	res.status(200).json({ success: true });
+	console.log(' ')
+	console.log('>>> UPDATED USER');
+  });
+
 module.exports = router;

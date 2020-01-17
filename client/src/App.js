@@ -5,6 +5,7 @@ import setAuthToken from './utils/setAuthToken';
 // actions
 import { loadUser } from './actions/auth'
 // components
+import Alert from './components/alert/Alert'
 import Dashboard from './components/dashboard/Dashboard';
 import Landing from './components/landing/Landing';
 import Navbar from './components/navbar/Navbar';
@@ -29,7 +30,8 @@ const App = () => {
       <Router>
         <Fragment>
           <Route exact path='/' component={Landing} />
-          <section className='container'>
+          <section>
+          <Alert />
             <Switch>
               <PrivateRoute exact path='/dashboard' component={Dashboard} />
               <Route exact path='/login' component={Login} />

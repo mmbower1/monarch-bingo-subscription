@@ -8,12 +8,13 @@ import { BlackBox } from '../login/Login.styles';
 import { RegisterButton, RegisterContainer, RegisterInner } from './Register.styles';
 import { Footer } from '../../footer/Footer.styles';
 // actions
-import { register } from '../../../actions/auth'
+import { register } from '../../../actions/auth';
+import { setAlert } from '../../../actions/alert';
 // components
 import Navbar from '../../navbar/Navbar'
 // import axios from 'axios';
 
-const Register = ({ register, isAuthenticated }) => {
+const Register = ({ register, isAuthenticated, setAlert }) => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -29,9 +30,10 @@ const Register = ({ register, isAuthenticated }) => {
     const onSubmit = async e => {
         e.preventDefault();
         if (password !== password2) {
-            console.log('Passwords dont match')
+            setAlert('Passwords dont match', 'danger')
         } else {
             register({ name, email, btcAddress, password });
+            setAlert('Register success', 'success')
         }
     }
 
@@ -115,10 +117,11 @@ const Register = ({ register, isAuthenticated }) => {
 Register.propTypes = {
     register: PropTypes.func.isRequired,
     isAuthenticated: PropTypes.bool,
+    setAlert: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = state => ({
     isAuthenticated: state.auth.isAuthenticated
 })
 
-export default connect(mapStateToProps, { register })(Register)
+export default connect(mapStateToProps, { register, setAlert })(Register)

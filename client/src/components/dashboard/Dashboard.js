@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
+import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types';
+import axios from 'axios';
 // styles
 import { Footer } from '../footer/Footer.styles';
 import { DashboardButton, DashboardContainer, DashboardInner } from './Dashboard.styles'
@@ -19,7 +20,28 @@ const Dashboard = () => {
 
     const onSubmit = async e => {
         e.preventDefault();
-        // 
+        const { auth } = this.props;
+        // Check which fields have been updated and then submit only those fields
+        let userInfo = {}
+        if (this.state.name !== ""){
+            userInfo.name = this.state.name;
+        }
+        if (this.state.btcAddress !== ""){
+            userInfo.btcAddress = this.state.btcAddress;
+        }
+        axios.put(`/api/users/${auth.user._id}`, userInfo)
+        .then(() => {
+          this.setState({
+            name: "",
+            btcAddress : "",
+            phone : "",
+          });
+        //   this.props.setAlert('Account updated!', 'success');
+          this.props.onClose();
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
 
     return (
