@@ -3,11 +3,14 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import logo from '../../img/bitcoinbingologo.png'
+// styles
+import { NavbarContainer } from './Navbar.styles'
 // actions
 import { logout } from '../../actions/auth'
 
 
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
+    
     const authLinks = (
         <ul>
             <a onClick={logout}>
@@ -18,21 +21,22 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     )
 
     const guestLinks = (
-        <ul className='guest-links'>
-            <ul><Link to="/login">Login</Link></ul>
-            <ul><Link to="/register">/ &nbsp;&nbsp;&nbsp;Register</Link></ul>
-        </ul>
+        <div>
+            <p className='title'>WELCOME</p>
+            {/* <ul><Link to="/login">Login</Link></ul>
+            <ul><Link to="/register">/ &nbsp;&nbsp;&nbsp;Register</Link></ul> */}
+        </div>
     )
 
     return (
-        <nav className="navbar">
+        <NavbarContainer>
             <h1>
                 <Link to="/"><img id='auth-logo' src={logo}></img></Link>
             </h1>
             { !loading && (
                 <Fragment>{ isAuthenticated ? authLinks : guestLinks }</Fragment>
             )}
-        </nav>
+        </NavbarContainer>
     )
 }
 

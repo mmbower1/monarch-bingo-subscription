@@ -106,33 +106,36 @@ button {
   font: inherit;
 }
 
+#green-button {
+  background: #9ACD32;
+  color: white;
+  padding: 10px;
+  margin-left: 25px;
+}
+
 .guest-links {
-  border-radius: 17px;
-	border: 2px solid #cee0d0;
-  cursor: pointer;
   font-size: 20px;
 }
 
 .guest-links-landing {
-  border-radius: 17px;
-	border: 2px solid #cee0d0;
+  background: #fff;
+  color: #fff;
   cursor: pointer;
-  margin-left: 1450px;
   font-size: 20px;
+  margin-left: 1450px;
+  padding: 11px;
+  width: 220px;
 }
 
-/* Navbar */
-.navbar {
-  background-color: #004A60;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.7rem 2rem;
-  position: fixed;
-  z-index: 1;
-  width: 100%;
-  top: 0;
-  opacity: 0.9;
+#login-button {
+  border-radius: 6px;
+  background: #ff9501;
+  color: #fff;
+  font-size: 20px;
+  margin: auto;
+  margin-top: 15px;
+  padding: 11px;
+  width: 170px;
 }
 
 .navbar ul {
@@ -153,6 +156,17 @@ button {
   margin-right: 0.6rem;
 }
 
+#register-button {
+  border-radius: 6px;
+  background: #ff9501;
+  color: #fff;
+  font-size: 20px;
+  margin: auto;
+  margin-top: 15px;
+  padding: 11px;
+  width: 170px;
+}
+
 .round-img {
   border-radius: 50%;
 }
@@ -166,6 +180,7 @@ button {
 }
 
 .title {
+  color: white;
   font-size: 50px;
 }
 

@@ -1,5 +1,16 @@
 import styled from 'styled-components';
 
+export const RegisterButton = styled.div`
+    border-radius: 6px;
+    background: #ff9501;
+    color: #fff;
+    font-size: 20px;
+    margin: auto;
+    margin-top: 15px;
+    padding: 11px;
+    width: 170px;
+`;
+
 export const RegisterContainer = styled.div`
     position: relative;
     /* background: url('../img/showcase.jpg') no-repeat center center/cover; */

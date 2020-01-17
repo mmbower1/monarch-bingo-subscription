@@ -3,9 +3,9 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 // styles
-import { DarkOverlay, FormGroupContainer, OrangeButton } from '../../landing/Landing.styles';
+import { DarkOverlay, FormGroupContainer } from '../../landing/Landing.styles';
 import { BlackBox } from '../login/Login.styles';
-import { RegisterContainer, RegisterInner } from './Register.styles';
+import { RegisterButton, RegisterContainer, RegisterInner } from './Register.styles';
 import { Footer } from '../../footer/Footer.styles';
 // actions
 import { register } from '../../../actions/auth'
@@ -43,6 +43,10 @@ const Register = ({ register, isAuthenticated }) => {
         <RegisterContainer>
             <Navbar />
             <DarkOverlay>
+            <br />
+            <br />
+            <br />
+            <br />
                 <RegisterInner>
                     <p className="title"> CREATE YOUR ACCOUNT</p>
                     <form className="form" onSubmit={e => onSubmit(e)}>
@@ -96,12 +100,10 @@ const Register = ({ register, isAuthenticated }) => {
                                 onChange={(e) => onChange(e)}
                             />
                         </FormGroupContainer>
-                        <OrangeButton>
-                            <input type="submit" value="REGISTER" />
-                        </OrangeButton>
+                        <input id='register-button' type="submit" value="REGISTER" />
                     </form>
                     <BlackBox>
-                        Already have an account? <br /><Link to="/login">Sign In</Link>
+                        Already have an account? <br /><Link to="/login">LOGIN</Link>
                     </BlackBox>
                     <Footer>© 2019 Copyright Bitcoin Bingo, all rights reserved</Footer>
                 </RegisterInner>

@@ -3,7 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 // styles
-import { DarkOverlay, FormGroupContainer, OrangeButton } from '../../landing/Landing.styles';
+import { DarkOverlay, FormGroupContainer } from '../../landing/Landing.styles';
 import { BlackBox, LoginContainer, LoginInner } from './Login.styles';
 import { Footer } from '../../footer/Footer.styles';
 // actions
@@ -40,7 +40,6 @@ const Login = ({ login, isAuthenticated }) => {
             <br />
             <br />
                 <LoginInner>
-                    <p className="title"> WELCOME</p>
                     <form className="form" onSubmit={e => onSubmit(e)}>
                         <FormGroupContainer>
                             <input
@@ -62,14 +61,13 @@ const Login = ({ login, isAuthenticated }) => {
                                 onChange={(e) => onChange(e)}
                             />
                         </FormGroupContainer>
-                        <OrangeButton>
-                            <input type="submit" value="LOGIN" />
-                        </OrangeButton>
+                            <input id='login-button' type="submit" value="LOGIN" />
+                        <br />
                         <br />
                         <h4>Forgot Password?</h4>
                     </form>
                     <BlackBox>
-                        Don't have an account? <br /><Link to="/register">Sign Up</Link>
+                        Don't have an account? <br /><Link to="/register">REGISTER</Link>
                     </BlackBox>
                     <Footer>© 2019 Copyright Bitcoin Bingo, all rights reserved</Footer>
                 </LoginInner>

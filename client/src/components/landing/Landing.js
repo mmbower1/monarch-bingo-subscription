@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import logo from '../../img/bitcoinbingologo.png';
 import axios from 'axios';
 // styles
-import { DarkOverlay, FormGroupContainer, LandingContainer, LandingInner, OrangeButton, Writing } from './Landing.styles';
+import { DarkOverlay, FormGroupContainer, LandingContainer, LandingInner, SubscribeButton, Writing } from './Landing.styles';
 import { Footer } from '../footer/Footer.styles';
 // modals
 import SuccessModal from '../modals/successModal/SuccessModal';
@@ -70,10 +70,10 @@ const Landing = () => {
         <LandingContainer>
             <DarkOverlay>
                 <LandingInner>
-                    <span className="guest-links-landing">
-                        <Link to='/login'>Login /</Link>
-                        <Link to='/register'> Register</Link>
-                    </span>
+                    <div className="guest-links-landing">
+                        <Link to='/login'>Login </Link>
+                        <span id='green-button'><Link to='/register'> SIGN UP</Link></span>
+                    </div>
                     <img id='bingo-logo-landing' src={logo}></img>
                     <Writing>
                         A fun and easy way to earn crypto by playing Bingo!<br />
@@ -102,7 +102,7 @@ const Landing = () => {
                                 onChange={e => onChange(e)}
                                 required
                             />
-                            <OrangeButton className="btn" type="submit">SUBSCRIBE</OrangeButton>
+                            <SubscribeButton className="btn" type="submit">SUBSCRIBE</SubscribeButton>
                         </FormGroupContainer>
                     </form>
                     {/* <Footer>© 2019 Copyright Bitcoin Bingo, all rights reserved</Footer> */}
@@ -112,6 +112,7 @@ const Landing = () => {
             <ErrorModal open={isErrorModalOpen} onClose={() => setIsErrorModalOpen(false)}/>
             <SuccessModal open={isSuccessModalOpen} onClose={() => onSuccessModalClose()}/>
         </LandingContainer>
+        
     )
 }
 
