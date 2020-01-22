@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const { check, validationResult } = require('express-validator');
 const User = require('../../models/User');
+const Subscription = require('../../models/Subscription');
+
 
 // SENDX
 const SendXRestApi = require('send_x_rest_api');
@@ -9,7 +11,7 @@ const SendXRestApi = require('send_x_rest_api');
 // // load env vars
 // dotenv.config({ path: '../../config/config.env'})
 
-// @route      GET api/users
+// @route      POST api/subscription
 // @desc       SUBSCRIPTION
 // @access     Public - no token
 router.post(
@@ -23,6 +25,9 @@ router.post(
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
         }
+        
+        
+
         const { username, email } = req.body;
         console.log(' ');
         console.log('req.body: ', req.body);
@@ -32,16 +37,21 @@ router.post(
         }
 
         try {
-            let user = await User.findOne({ email: email }, { unique: true }, async (err, obj) => {
+            let subscriber = await Subscription.findOne({ email: email }, { unique: true }, async (err, obj) => {
                 if (err) throw err;
             });
 
             // see if email exists
-            if (user) {
+            if (subscriber) {
                 console.log(' ');
                 console.log("==> User has already subscribed!");
                 return res.status(200).json({ message: 'User already subscribed.', success: false })
             } else {
+                subscriber = new Subscription({
+                    name: username,
+                    email: email
+                });
+                await subscriber.save();
                 // SENDX START
                 const sendxAPI = new SendXRestApi.ContactApi()
                 const sendxAPIkey = "u2jsfMKaG5QtEdQUjKq6";
@@ -61,6 +71,7 @@ router.post(
                     }
                 };
                 sendxAPI.contactIdentifyPost(sendxAPIkey, sendxTeamId, contactDetails, callback);
+                return res.json({ user: req.body, message: 'Subscriber added', success: true  })
             }
         } catch (err) {
             console.log(' ');

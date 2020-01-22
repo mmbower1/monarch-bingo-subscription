@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
 
 // export const LandingBody = createGlobalStyle`
 //     body {
@@ -9,29 +9,27 @@ import styled, { createGlobalStyle } from 'styled-components';
 //         background-repeat: no-repeat;
 //         background-position: bottom left, bottom right -180px;
 //     }
-
 // `;
 
-export const DarkOverlay = styled.div`
-    background: transparent linear-gradient(180deg, #0089AA 0%, #003241 100%) 0% 0% no-repeat padding-box;
-    height: 100%;
-    opacity: 1;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+// export const DarkOverlay = styled.div`
+//     height: 100%;
+//     opacity: 1;
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
 
-`;
+// `;
 
 export const FormGroupContainer = styled.div`
     display: grid;
     padding: 10px;
+    text-align: center;
 `;
 
 export const LandingContainer = styled.div`
-    height: 100vh;
+    height: 110vh;
     position: relative;
-    /* background: url('../img/showcase.jpg') no-repeat center center/cover; */
     @media (max-width: 768px) {
         height: 130vh
     }
@@ -68,3 +66,4 @@ export const Writing = styled.p`
     font-size: 20px;
     line-height: 35px;
 `;
+

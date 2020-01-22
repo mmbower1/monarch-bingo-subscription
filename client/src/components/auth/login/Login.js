@@ -1,19 +1,18 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 // styles
-import { DarkOverlay, FormGroupContainer } from '../../landing/Landing.styles';
-import { BlackBox, LoginContainer, LoginInner } from './Login.styles';
+import { FormGroupContainer } from '../../layout/Landing.styles';
+import { BlackBoxLogin, LoginContainer, LoginInner } from './Login.styles';
 import { Footer } from '../../footer/Footer.styles';
 // actions
 import { login } from '../../../actions/auth';
-// import { setAlert } from '../../../actions/alert';
 // components
 import Navbar from '../../navbar/Navbar'
 // import axios from 'axios';
 
-const Login = ({ login, isAuthenticated, setAlert }) => {
+const Login = ({ login, isAuthenticated }) => {
     const [formData, setFormData] = useState({
         email: '',
         password: ''
@@ -34,13 +33,14 @@ const Login = ({ login, isAuthenticated, setAlert }) => {
 
     return (
         <LoginContainer>
-            <Navbar />
-            <DarkOverlay>
+            <Navbar page={"login"}/>
+            <div>
             <br />
             <br />
             <br />
             <br />
                 <LoginInner>
+                    {/* <p className="title"> LOGIN</p> */}
                     <form className="form" onSubmit={e => onSubmit(e)}>
                         <FormGroupContainer>
                             <input
@@ -62,17 +62,19 @@ const Login = ({ login, isAuthenticated, setAlert }) => {
                                 onChange={(e) => onChange(e)}
                             />
                         </FormGroupContainer>
-                            <input id='login-button' type="submit" value="LOGIN" />
+                        <br />
+                        <input id='login-button' type="submit" value="LOGIN" />
                         <br />
                         <br />
                         <h4>Forgot Password?</h4>
                     </form>
-                    <BlackBox>
-                        Don't have an account? <br /><Link to="/register">REGISTER</Link>
-                    </BlackBox>
+                    <BlackBoxLogin>
+                        No account? Registration is free!<br />
+                        <span className='blackbox-links'><Link to="/register">REGISTER</Link></span>
+                    </BlackBoxLogin>
                     <Footer>© 2019 Copyright Bitcoin Bingo, all rights reserved</Footer>
                 </LoginInner>
-            </DarkOverlay>
+            </div>
         </LoginContainer>
     )
 }

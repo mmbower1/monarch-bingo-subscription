@@ -1,9 +1,9 @@
 /* Global Styles */
 :root {
-  --primary-color: #17a2b8;
+  /* --primary-color: #17a2b8; */
   --dark-color: #343a40;
   --light-color: #f4f4f4;
-  --danger-color: #dc3545;
+  --danger-color: #e0591a;
   --success-color: #28a745;
 }
 
@@ -13,93 +13,101 @@
   padding: 0;
 }
 
+body {
+  background-image: url(./img/bingo-left.jpeg), url(./img/bingo-right.jpeg),
+    linear-gradient(180deg, #0089aa 0%, #003241 90%);
+  background-color: rgba(255, 255, 255, 0.4);
+  background-size: auto, 680px;
+  background-repeat: no-repeat;
+  background-position: bottom left, right -200px bottom;
+  color: #fff;
+  display: block;
+  font-family: "Roboto", sans-serif;
+  line-height: 1.6;
+}
+
+.bg-modal {
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  opacity: 0.7;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.blackbox-links {
+  color: orange;
+  font-size: 22px;
+  text-decoration: underline;
+}
+
 a {
   color: var(--primary-color);
   text-decoration: none;
 }
-
-.alert {
-  padding: 0.8rem;
-  margin: 1rem 0;
-  opacity: 0.9;
-  background: var(--light-color);
-  color: #333;
-}
-
-.alert-primary {
-  background: var(--primary-color);
-  color: #fff;
-}
-.alert-light {
-  background: var(--light-color);
-  color: #333;
-}
-.alert-dark {
-  background: var(--dark-color);
-  color: #fff;
-}
-.alert-danger {
-  background: var(--danger-color);
-  color: #fff;
-}
-.alert-success {
-  background: var(--success-color);
-  color: #fff;
-}
-
 
 #bingo-logo-landing {
   height: 360px;
   margin-bottom: 50px;
   width: 500px;
 }
-#bitcoin-bingo-navbar {
-  height: 220px;
-  width: 290px;
-}
 
-body {
-  font-family: 'Roboto', sans-serif;
-  font-size: 1rem;
-  line-height: 1.6;
-  background-color: #fff;
-  color: #333;
+.btn-danger,
+.bg-danger,
+.badge-danger,
+.alert-danger {
+  background: #ff9501;
+  /* background: var(--light-color); */
+  color: #fff;
 }
 
 .btn:hover {
-  opacity: 0.8;
+  opacity: 0.6;
 }
 
-/* Utilities */
-/* .container {
-  max-width: 1100px;
-  margin: auto;
-  overflow: hidden;
-  padding: 0 2rem;
-  margin-top: 6rem;
-  margin-bottom: 3rem;
-} */
-
-.btn {
-  display: inline-block;
-  background: var(--light-color);
-  color: #333;
-  padding: 0.4rem 1.3rem;
-  font-size: 1rem;
-  border: none;
+.close-modal {
   cursor: pointer;
-  margin-right: 0.5rem;
-  transition: opacity 0.2s ease-in;
-  outline: none;
+  font-size: 42px;
+  position: absolute;
+  right: 14px;
+  top: 0;
+  transform: rotate(45deg);
 }
 
-img {
-  width: 100%;
+#dashboard-button {
+  border-radius: 6px;
+  background: #ff9501;
+  color: #fff;
+  cursor: pointer;
+  font-size: 20px;
+  margin: auto;
+  margin-top: 15px;
+  padding: 11px;
+  width: 170px;
 }
 
-/* Forms */
-.form .form-group {
-  margin: 1.2rem 0;
+input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+}
+
+/* Overlay */
+.form-control {
+  border-radius: 6px;
+  font-size: 20px;
+  margin-bottom: 15px;
+  padding: 8px;
+  width: 450px;
+  text-align: center;
+}
+
+.form-control-dashboard {
+  background: #0089aa;
+  color: white;
 }
 
 .form .form-text {
@@ -108,137 +116,247 @@ img {
   color: #888;
 }
 
-.form input[type='text'],
-.form input[type='email'],
-.form input[type='password'],
-.form input[type='date'],
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="password"],
+.form input[type="date"],
 .form select,
 .form textarea {
   border: 1px solid #ccc;
   border-radius: 4px;
   display: block;
-  width: 100%;
+  margin: auto;
+  width: 500px;
   padding: 10px;
   font-size: 1.2rem;
-  width: 500px;
+  text-align: center;
 }
 
-.form input[type='submit'],
-button {
-  font: inherit;
+.landing-logo {
+  height: 300px;
+  width: 470px;
 }
 
-#green-button {
-  background: #9ACD32;
-  color: white;
-  padding: 10px;
-  margin-left: 25px;
-}
-
-.guest-links {
-  font-size: 20px;
-}
-
-.guest-links-landing {
-  background: #fff;
-  color: #fff;
-  cursor: pointer;
-  font-size: 20px;
-  margin-left: 1450px;
-  padding: 11px;
-  width: 220px;
+.landing-text {
+  font-size: 25px;
+  line-height: 33px;
+  padding: 20px;
+  width: 65%;
 }
 
 #login-button {
+  background-color: #ff9501;
   border-radius: 6px;
-  background: #ff9501;
+  border: 1px solid #cee0d0;
+  cursor: pointer;
   color: #fff;
-  font-size: 20px;
-  margin: auto;
-  margin-top: 15px;
-  padding: 11px;
-  width: 170px;
+  font-size: 24px;
+  padding: 10px 27px;
 }
 
-.navbar ul {
-  display: flex;
+#logout-button {
+  cursor: pointer;
 }
 
-.navbar a {
-  color: #fff;
-  padding: 0.45rem;
-  margin: 0 0.25rem;
+.lead {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
 }
 
-.navbar a:hover {
-  color: var(--primary-color);
+.line {
+  height: 1px;
+  background: #ccc;
+  margin: 1.5rem 0;
 }
 
-.navbar .welcome span {
-  margin-right: 0.6rem;
+#logout-button {
+  margin-left: 100px;
+}
+
+.modal-content {
+  color: black;
+  background-color: white;
+  border-radius: 5px;
+  height: 470px;
+  font-size: 25px;
+  margin-top: 150px;
+  position: relative;
+  text-align: center;
+  width: 1100px;
+}
+
+.nav-child {
+  margin-left: 40px;
+  margin-top: 80px;
+}
+
+#navbar-logo {
+  height: 180px;
+  width: 270px;
 }
 
 #register-button {
   border-radius: 6px;
-  background: #ff9501;
+  background-color: #ff9501;
+  border: 1px solid #cee0d0;
+  cursor: pointer;
   color: #fff;
+  font-size: 24px;
+  padding: 10px 27px;
+}
+
+#subscribe-button {
+  border-radius: 7px;
   font-size: 20px;
-  margin: auto;
-  margin-top: 15px;
+  margin-left: 140px;
   padding: 11px;
   width: 170px;
 }
-
-.round-img {
-  border-radius: 50%;
+#landing-buttons {
+  margin-left: 500px;
 }
-
-.text-primary {
-  color: var(--primary-color);
+#top-landing-button-1 {
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  margin-right: 20px;
+  text-decoration: none;
 }
-
-.text-dark {
-  color: var(--dark-color);
+#top-landing-button-2 {
+  background-color: #e7e7e7;
+  border-radius: 10px;
+  color: #0089aa;
+  font-size: 25px;
+  font-weight: bold;
+  padding: 5px;
+  text-decoration: none;
 }
 
 .title {
   color: white;
   font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 50px;
 }
 
 /* Mobile Styles */
 @media (max-width: 700px) {
-  .container {
-    margin-top: 8rem;
+  body {
+    background-image: url(./img/bingo-left.jpeg), url(./img/bingo-right.jpeg),
+      linear-gradient(180deg, #0089aa, #003241);
+    background-color: rgba(255, 255, 255, 0.4);
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: bottom left, right bottom;
+    color: #333;
+    font-family: "Roboto Bold", sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
   }
 
-  .hide-sm {
-    display: none;
+  .blackbox-links {
+    color: orange;
+    font-size: 14px;
+    text-decoration: underline;
   }
 
-  /* Navbar */
-  .navbar {
+  .footer {
+    font-size: 13px;
+  }
+
+  .form {
+    margin-top: 40px;
+  }
+
+  .form-control {
+    font-size: 13px;
+    width: 315px;
+  }
+
+  .form input[type="text"],
+  .form input[type="email"],
+  .form input[type="password"],
+  .form input[type="date"],
+  .form select,
+  .form textarea {
+    border: 1px solid #ccc;
+    border-radius: 4px;
     display: block;
+    margin: auto;
+    padding: 10px;
+    font-size: 14px;
     text-align: center;
+    width: 330px;
   }
 
-  .navbar ul {
-    text-align: center;
-    justify-content: center;
+  #landing-buttons {
+    margin-left: 10px;
+  }
+  #top-landing-button-1 {
+    font: 10px;
+  }
+  #top-landing-button-2 {
+    font: 10px;
   }
 
-  .navbar h1 {
-    margin-bottom: 1rem;
+  .landing-logo {
+    margin-top: 80px;
+    width: 320px;
+    height: 210px;
   }
 
-  .navbar .welcome {
-    display: none;
+  .landing-text {
+    font-size: 19px;
+    line-height: 20px;
+    width: 70%;
   }
 
-  .dash-buttons a {
+  .lead {
+    font-size: 1rem;
+  }
+
+  #login-button {
+    font-size: 20px;
+    padding-bottom: 7px;
+    padding-top: 7px;
+  }
+
+  #logout-button {
     display: block;
-    width: 100%;
-    margin-bottom: 0.2rem;
+    margin-left: 100px;
+  }
+
+  .modal-content {
+    font-size: 19px;
+  }
+
+  .nav-child {
+    margin-left: 50px;
+    margin-top: 10px;
+  }
+
+  #register-button {
+    border-radius: 6px;
+    background-color: #ff9501;
+    border: 1px solid #cee0d0;
+    cursor: pointer;
+    color: #fff;
+    font-size: 24px;
+    padding: 10px 27px;
+  }
+
+  #subscribe-button {
+    font-size: 14px;
+    margin-left: 70px;
+    padding: 10px;
+  }
+
+  .title {
+    color: white;
+    margin-left: 40px;
+    font-size: 30px;
+    font-weight: bold;
   }
 }
-

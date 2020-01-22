@@ -20,6 +20,9 @@ const UserSchema = new mongoose.Schema({
   avatar: {
     type: String
   },
+  subscription: {
+    type: Boolean
+  },
   date: {
     type: Date,
     default: Date.now

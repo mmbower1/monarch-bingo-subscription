@@ -1,14 +1,18 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import sweetAlert from 'sweetalert'
+// actions
+import { auth } from '../../actions/auth';
 // styles
 import { Footer } from '../footer/Footer.styles';
 import { DashboardButton, DashboardContainer, DashboardInner } from './Dashboard.styles'
-import { DarkOverlay, FormGroupContainer } from '../landing/Landing.styles'
+import { FormGroupContainer } from '../layout/Landing.styles'
 // components
 import Navbar from '../navbar/Navbar';
 
-const Dashboard = () => {
+const Dashboard = ({ auth: { user } }) => {
     const [formData, setFormData] = useState({
         name: '',
         btcAddress: ''
@@ -20,24 +24,22 @@ const Dashboard = () => {
 
     const onSubmit = async e => {
         e.preventDefault();
-        const { auth } = this.props;
         // Check which fields have been updated and then submit only those fields
         let userInfo = {}
-        if (this.state.name !== ""){
-            userInfo.name = this.state.name;
+        if (name !== ""){
+            userInfo.name = name;
         }
-        if (this.state.btcAddress !== ""){
-            userInfo.btcAddress = this.state.btcAddress;
+        if (btcAddress !== ""){
+            userInfo.btcAddress = btcAddress;
         }
-        axios.put(`/api/users/${auth.user._id}`, userInfo)
+        axios.put(`/api/users/${user._id}`, userInfo)
         .then(() => {
-          this.setState({
-            name: "",
-            btcAddress : "",
-            phone : "",
-          });
-        //   this.props.setAlert('Account updated!', 'success');
-          this.props.onClose();
+            this.setState({
+                name: "",
+                btcAddress : "",
+            });
+            alert('Account updated.');
+        //   this.props.onClose();
         })
         .catch(err => {
           console.log(err);
@@ -46,16 +48,16 @@ const Dashboard = () => {
 
     return (
         <DashboardContainer>
-            <DarkOverlay>
+            <Navbar page={"dashboard"} />
+            <div>
                 <DashboardInner>
-                    <Navbar />
                     <form className='form' action="/api/subscription" method="POST" onSubmit={e => onSubmit(e)}>
                         <FormGroupContainer>
                             <input
                                 type="text"
                                 name="name"
                                 id="name"
-                                className="form-control"
+                                className="form-control-dashboard"
                                 placeholder="Name"
                                 onChange={e => onChange(e)}
                             />
@@ -64,22 +66,30 @@ const Dashboard = () => {
                                 type="text"
                                 name="btcAddress"
                                 id="btcAddress"
-                                className="form-control"
+                                className="form-control-dashboard"
                                 placeholder="BTC Address"
                                 onChange={e => onChange(e)}
                             />
-                            <DashboardButton className="btn" type="submit">EDIT</DashboardButton>
+                            {/* <DashboardButton className="btn" type="submit">EDIT</DashboardButton> */}
+                            <input id='dashboard-button' type="submit" value="EDIT" />
                         </FormGroupContainer>
                     </form>
                     <Footer>© 2019 Copyright Bitcoin Bingo, all rights reserved</Footer>
                 </DashboardInner>
-            </DarkOverlay>
+            </div>
         </DashboardContainer>
     )
 }
 
 Dashboard.propTypes = {
-
+    auth: PropTypes.object.isRequired,
 }
 
-export default Dashboard
+const mapStateToProps = state => {
+    console.log('state.auth: ', state.auth.user)
+    return {
+        auth: state.auth
+    }
+}
+
+export default connect(mapStateToProps, null)(Dashboard)

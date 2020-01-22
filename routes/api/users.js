@@ -23,7 +23,7 @@ router.post(
 		if (!errors.isEmpty()) {
 			return res.status(400).json({ errors: errors.array() });
 		}
-		const { name, email, btcAddress, password } = req.body;
+		const { name, email, btcAddress, password, subscription } = req.body;
 		try {
 			// see if user exists
 			let user = await User.findOne({ email }, { unqiue: true });
@@ -44,7 +44,8 @@ router.post(
 				email,
 				btcAddress,
 				password,
-				avatar
+				avatar,
+				subscription
 			});
 
 			// bcrypt password
@@ -76,22 +77,28 @@ router.post(
 // @route    PUT api/users
 // @desc     1. Edit Name, Btc
 // @access   Private
-router.put('/:id', async (req, res) => {
-	const errors = validationResult(req);
-	if (!errors.isEmpty()) {
-	  return res.status(400).json({ errors: errors.array() })
-	}
-	const user = await User.findByIdAndUpdate(req.params.id, req.body, {
-	  new: true,
-	  runValidators: true
-	});
-	if (!user) {
-	  // using errorResponse instead of: return res.status(400).json({ success: false });
-	  return res.status(200).send(`User not found with id of ${req.params.id}`, 404);
-	}
-	res.status(200).json({ success: true });
-	console.log(' ')
-	console.log('>>> UPDATED USER');
+router.put(
+	'/:id',
+	[
+		check('name', 'Name is required'),
+		check('btcAddress', 'BTC Address needs atleast 34 characters').isLength({ min: 34 }),
+	],
+	async (req, res) => {
+		const errors = validationResult(req);
+		if (!errors.isEmpty()) {
+			return res.status(400).json({ errors: errors.array() })
+		}
+		const user = await User.findByIdAndUpdate(req.params.id, req.body, {
+		new: true,
+		runValidators: true
+		});
+		if (!user) {
+			// using errorResponse instead of: return res.status(400).json({ success: false });
+			return res.status(200).send(`User not found with id of ${req.params.id}`, 404);
+		}
+		res.status(200).json({ success: true });
+		console.log(' ')
+		console.log('>>> UPDATED USER');
   });
 
 module.exports = router;

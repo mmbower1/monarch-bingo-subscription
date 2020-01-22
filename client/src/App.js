@@ -5,10 +5,8 @@ import setAuthToken from './utils/setAuthToken';
 // actions
 import { loadUser } from './actions/auth'
 // components
-import Alert from './components/alert/Alert'
 import Dashboard from './components/dashboard/Dashboard';
-import Landing from './components/landing/Landing';
-import Navbar from './components/navbar/Navbar';
+import Landing from './components/layout/Landing';
 import Login from './components/auth/login/Login';
 import Register from './components/auth/register/Register';
 import PrivateRoute from './components/routing/PrivateRoute';
@@ -31,7 +29,6 @@ const App = () => {
         <Fragment>
           <Route exact path='/' component={Landing} />
           <section>
-          <Alert />
             <Switch>
               <PrivateRoute exact path='/dashboard' component={Dashboard} />
               <Route exact path='/login' component={Login} />

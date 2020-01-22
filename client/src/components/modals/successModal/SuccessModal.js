@@ -54,8 +54,8 @@ class SuccessModal extends Component {
             <br />
             Cheers,
             <br />
-            Bitcoin Bingo Team
-            </h6>
+Bitcoin Bingo Team
+</h6>
         </div>
       </Modal>
     );
