@@ -23,13 +23,13 @@ export const loadUser = () => async dispatch => {
   }
 
 // register
-export const register = ({ name, email, btcAddress, password }) => async dispatch => {
+export const register = ({ name, email, btcAddress, password, subscription }) => async dispatch => {
     const config = {
         headers: {
             'Content-Type': 'application/json'
         }
     }
-    const body = JSON.stringify({ name, email, btcAddress, password })
+    const body = JSON.stringify({ name, email, btcAddress, password, subscription })
     try {
         const res = await axios.post('/api/users', body, config);
         dispatch({

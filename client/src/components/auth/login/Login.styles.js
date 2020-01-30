@@ -25,7 +25,7 @@ export const LoginContainer = styled.div`
     height: 110vh;
     @media (max-width: 700px) {
         margin: auto;
-        height: 120vh;
+        height: 160vh;
     }
 `;
 
@@ -37,6 +37,7 @@ export const LoginInner = styled.div`
     flex-direction: column;
     justify-content: center;
     margin: auto;
+    margin-top: 100px;
     text-align: center;
     width: 80%;
     @media (max-width: 700px) {

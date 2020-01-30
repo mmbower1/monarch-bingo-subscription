@@ -44,10 +44,6 @@ const Register = ({ register, isAuthenticated }) => {
         <RegisterContainer>
             <Navbar page={"register"} /> 
             <div>
-            <br />
-            <br />
-            <br />
-            <br />
                 <RegisterInner>
                     {/* <p className="title"> CREATE YOUR ACCOUNT</p> */}
                     <form className="form" onSubmit={e => onSubmit(e)}>

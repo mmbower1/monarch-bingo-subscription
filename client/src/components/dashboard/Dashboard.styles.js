@@ -4,7 +4,7 @@ export const DashboardContainer = styled.div`
     /* background: url('../img/showcase.jpg') no-repeat center center/cover; */
     height: 110vh;
     @media (max-width: 700px) {
-        height: 800px;
+        height: 190vh;
     }
 `;
 
@@ -19,6 +19,6 @@ export const DashboardInner = styled.div`
     text-align: center;
     width: 80%;
     @media (max-width: 700px) {
-        height: 800px;
+        
     }
 `;

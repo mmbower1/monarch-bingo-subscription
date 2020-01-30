@@ -37,7 +37,7 @@ export const RegisterContainer = styled.div`
     height: 140vh;
     @media (max-width: 700px) {
         margin: auto;
-        height: 145vh;
+        height: 165vh;
     }
 `;
 
@@ -49,6 +49,7 @@ export const RegisterInner = styled.div`
     flex-direction: column;
     justify-content: center;
     margin: auto;
+    margin-top: 100px;
     text-align: center;
     width: 80%;
     @media (max-width: 700px) {

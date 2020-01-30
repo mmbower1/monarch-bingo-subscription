@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import logo from '../../img/bitcoinbingologo.png'
-import {withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 // styles
 import { NavbarContainer } from './Navbar.styles'
 // actions
@@ -30,14 +30,14 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout, page }) => {
     )
     const guestLinksLogin = (
         <div>
-            <p className='title'>WELCOME</p>
+            <p className='welcome-title'>WELCOME</p>
             {/* <ul><Link to="/login">Login</Link></ul>
             <ul><Link to="/register">/ &nbsp;&nbsp;&nbsp;Register</Link></ul> */}
         </div>
     )
 
     // console.log("props.location.pathname: " + this.props.location.pathname);
-    let isRegisterPage = (page == "register");
+    let isRegisterPage = (page === "register");
     console.log("isRegisterPage: " + isRegisterPage);
     return (
         <NavbarContainer>

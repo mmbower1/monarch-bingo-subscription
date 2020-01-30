@@ -35,10 +35,6 @@ const Login = ({ login, isAuthenticated }) => {
         <LoginContainer>
             <Navbar page={"login"}/>
             <div>
-            <br />
-            <br />
-            <br />
-            <br />
                 <LoginInner>
                     {/* <p className="title"> LOGIN</p> */}
                     <form className="form" onSubmit={e => onSubmit(e)}>

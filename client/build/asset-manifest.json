@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.fc176bc3.chunk.css",
-    "main.js": "/static/js/main.d52e68fd.chunk.js",
-    "main.js.map": "/static/js/main.d52e68fd.chunk.js.map",
+    "main.css": "/static/css/main.89666926.chunk.css",
+    "main.js": "/static/js/main.973b0819.chunk.js",
+    "main.js.map": "/static/js/main.973b0819.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.e077b804.js",
     "runtime-main.js.map": "/static/js/runtime-main.e077b804.js.map",
     "static/js/2.6cc13e53.chunk.js": "/static/js/2.6cc13e53.chunk.js",
     "static/js/2.6cc13e53.chunk.js.map": "/static/js/2.6cc13e53.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.b0e291fc73447c4a2786781d5117ac9e.js": "/precache-manifest.b0e291fc73447c4a2786781d5117ac9e.js",
+    "precache-manifest.153d104f229ccf9ce17a527e63d22b2b.js": "/precache-manifest.153d104f229ccf9ce17a527e63d22b2b.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.fc176bc3.chunk.css.map": "/static/css/main.fc176bc3.chunk.css.map",
+    "static/css/main.89666926.chunk.css.map": "/static/css/main.89666926.chunk.css.map",
     "static/media/App.css": "/static/media/bingo-right.7f707338.jpeg",
     "static/media/bitcoinbingologo.png": "/static/media/bitcoinbingologo.6fd1a243.png"
   },
   "entrypoints": [
     "static/js/runtime-main.e077b804.js",
     "static/js/2.6cc13e53.chunk.js",
-    "static/css/main.fc176bc3.chunk.css",
-    "static/js/main.d52e68fd.chunk.js"
+    "static/css/main.89666926.chunk.css",
+    "static/js/main.973b0819.chunk.js"
   ]
 }
