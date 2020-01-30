@@ -34,10 +34,7 @@ const Dashboard = ({ auth: { user } }) => {
         }
         axios.put(`/api/users/${user._id}`, userInfo)
         .then(() => {
-            this.setState({
-                name: "",
-                btcAddress : "",
-            });
+            setFormData(name, btcAddress);
             alert('Account updated.');
         //   this.props.onClose();
         })

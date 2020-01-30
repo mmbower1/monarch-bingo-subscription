@@ -49,7 +49,7 @@ export const FormGroupContainer = styled.h1`
 `;
 
 export const LandingTitle = styled.h1`
-    font-size: 55px;
+    font-size: 45px;
     font-family: Regular, Luckiest Guy;
     text-align: left;
     @media (max-width: 768px) {
@@ -58,7 +58,7 @@ export const LandingTitle = styled.h1`
 `;
 export const LandingTitle2 = styled.p`
     color: #FFB73C;
-    font-size: 55px;
+    font-size: 45px;
     font-family: Regular, Luckiest Guy;
     text-align: left;
     @media (max-width: 768px) {
@@ -69,7 +69,7 @@ export const LandingTitle2 = styled.p`
 export const LandingParagraph = styled.h1`
     color: #B1E7F7;
     font-family: 'Roboto', 'Bold Italic';
-    font-size: 30px;
+    font-size: 20px;
     font-style: italic;
     text-align: left;
     @media (max-width: 768px) {
@@ -78,7 +78,7 @@ export const LandingParagraph = styled.h1`
 `;
 
 export const LandingEnd = styled.h1`
-    font-size: 21px;
+    font-size: 12px;
     text-align: left;
     @media (max-width: 768px) {
         text-align: center;

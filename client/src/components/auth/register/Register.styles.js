@@ -3,11 +3,12 @@ import styled from 'styled-components';
 export const BlackBoxRegister = styled.div`
     background-color: #000000;
     border-radius: 4px;
-    height: 120px;
+    height: 80px;
+    font-size: 12px;
     margin-top: 45px;
     opacity: 50%;
-    padding-top: 20px;
-    width: 25%;
+    padding-top: 10px;
+    width: 15%;
     @media (max-width: 700px) {
         font-size: 13px;
         height: 100px;
