@@ -1,14 +1,26 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-// pics
-import logo from '../../img/bitcoinbingologo.png';
+import axios from 'axios';
+// img
+import layoutLogo from '../../img/bingo-left.jpeg';
+import mainLogo from '../../img/bitcoinbingologo.png';
 // modals
 import SuccessModal from '../modals/successModal/SuccessModal';
 import ErrorModal from '../modals/errorModal/ErrorModal';
-import axios from 'axios';
 // styles
-import { FormGroupContainer, LandingContainer, LandingInner } from './Landing.styles.js';
 import { Footer } from '../footer/Footer.styles'
+import {
+  FormGroupContainer,
+  LandingBody,
+  LandingContainer,
+  LandingEnd,
+  LandingInner,
+  LandingParagraph,
+  LandingTitle,
+  LandingTitle2,
+  LeftSide,
+  RightSide
+} from './Landing.styles';
 
 const Landing = () => {
   let newUser;
@@ -17,10 +29,9 @@ const Landing = () => {
   const [isErrorModalOpen, setIsErrorModalOpen] = useState(false);
 
   const [formData, setFormData] = useState({
-    username: '',
     email: ''
   });
-  const { username, email } = formData;
+  const { email } = formData;
 
   // for typing in input fields
   const onChange = e => {
@@ -40,12 +51,12 @@ const Landing = () => {
     try {
       const config = {
         headers: {
-            'Content-Type': 'application/json'
+          'Content-Type': 'application/json'
         }
       }
       newUser = {
         email: email.toLowerCase().trim(),
-        username: username.toLowerCase().trim()
+        // username: username.toLowerCase().trim()
       };
       const body = JSON.stringify(newUser);
 
@@ -70,64 +81,48 @@ const Landing = () => {
   }
 
   return (
-    <LandingContainer>
+    <LandingBody>
+      <LandingContainer>
         <LandingInner>
-          <div id='landing-buttons'>
-            <button id="top-landing-button-1">
-              <Link to='/login'>LOGIN</Link>
-            </button>
-            <button id='top-landing-button-2'>
-              <Link to='/register'>SIGN-UP</Link>
-            </button>
-          </div>
-          <img src={logo} alt="landing-logo" className="landing-logo" />
-            <div className="landing-text">
-              <h5>A fun and easy way to earn crypto playing Bingo!</h5>
-              <br />
-              <h5>Coming soon in 2020.</h5>
-              <br />
-              <h5>Don't miss out on exciting news from
-                Bitcoin Bingo. Subscribe to our newsletter
-                for your chance at free Bingo cards and BIG rewards!
-              </h5>
-            </div>
-          <form action="api/subscription" method="POST" onSubmit={e => onSubmit(e)}>
-            <FormGroupContainer>
-              {/* <Row>
-                <img src={leftPicture} alt="left-picture" className="left-picture" />
-                <img src={rightPicture} alt="right-picture" className="right-picture" />
-              </Row> */}
-              <input
-                type="text"
-                name="username"
-                id="username"
-                className="form-control"
-                placeholder="Name"
-                onChange={e => onChange(e)}
-                required
-              />
-              <input
-                type="email"
-                name="email"
-                id="email"
-                className="form-control"
-                placeholder="Email"
-                onChange={e => onChange(e)}
-                required
-              />
-              <button id="subscribe-button" type="submit" className="btn btn-danger btn-block">SUBSCRIBE</button>
-            </FormGroupContainer>
-          </form>
-          <br />
-          <br />
-          <br />
-          <br />
-          <Footer>© 2019 Copyright Bitcoin Bingo, all rights reserved</Footer>
+          <LeftSide>
+            <img src={mainLogo} alt='' className='landing-img' />
+            <LandingTitle>PLAY BINGO.<br /></LandingTitle>
+            <LandingTitle2>EARN BITCOIN!</LandingTitle2>
+            <LandingParagraph>We're building a better Lottery, <br /> and we want <span id='you'>YOU</span> to be a part of it.</LandingParagraph><br />
+            <LandingEnd>Join our community to get access to FREE games<br /> when we launch!</LandingEnd>
+            <form action="api/subscription" method="POST" onSubmit={e => onSubmit(e)}>
+              <FormGroupContainer>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  className="form-control"
+                  placeholder="Email"
+                  onChange={e => onChange(e)}
+                  required
+                />
+                <button id="layout-button" type="submit" className="btn btn-danger btn-block">GET EARLY ACCESS</button>
+                <div id='landing-buttons'>
+                  <button id="top-landing-button-1">
+                    <Link to='/login'>LOGIN</Link>
+                  </button>
+                  <button id='top-landing-button-2'>
+                    <Link to='/register'>SIGN-UP</Link>
+                  </button>
+                </div>
+                <Footer>© 2020 Copyright. Bitcoin Bingo, all rights reserved.</Footer>
+              </FormGroupContainer>
+            </form>
+          </LeftSide>
+          <RightSide>
+            <img src={layoutLogo} alt='landing-img' className='landing-rightImg' />
+          </RightSide>
         </LandingInner>
-      <ErrorModal open={isErrorModalOpen} onClose={() => setIsErrorModalOpen()}/>
-      <SuccessModal open={isSuccessModalOpen} onClose={() => onSuccessModalClose()}/>
-  </LandingContainer>
+        <ErrorModal open={isErrorModalOpen} onClose={() => setIsErrorModalOpen()} />
+        <SuccessModal open={isSuccessModalOpen} onClose={() => onSuccessModalClose()} />
+      </LandingContainer>
+    </LandingBody>
   )
 }
 
-export default Landing
+export default Landing;

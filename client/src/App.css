@@ -19,7 +19,7 @@ body {
   background-color: rgba(255, 255, 255, 0.4);
   background-size: auto, 680px;
   background-repeat: no-repeat;
-  background-position: bottom left, right -200px bottom;
+  background-position: left, right;
   color: #fff;
   display: block;
   font-family: "Roboto", sans-serif;
@@ -80,14 +80,13 @@ a {
 
 #dashboard-button {
   border-radius: 6px;
-  background: #ff9501;
-  color: #fff;
+  background-color: #ff9501;
+  border: 1px solid #cee0d0;
   cursor: pointer;
-  font-size: 20px;
-  margin: auto;
-  margin-top: 15px;
-  padding: 11px;
-  width: 170px;
+  color: #fff;
+  font-size: 24px;
+  margin-top: 20px;
+  padding: 10px 27px;
 }
 
 input[type="checkbox"] {
@@ -107,7 +106,7 @@ input[type="checkbox"] {
 
 .form-control-dashboard {
   background: #0089aa;
-  color: white;
+  color: #fff;
 }
 
 .form .form-text {
@@ -132,6 +131,21 @@ input[type="checkbox"] {
   text-align: center;
 }
 
+#landing-buttons {
+  margin-top: 25px;
+}
+
+.landing-img {
+  height: 170px;
+  margin-right: 100%;
+  width: 260px;
+}
+
+.landing-rightImg {
+  height: 650px;
+  width: 650px;
+}
+
 .landing-logo {
   height: 300px;
   width: 470px;
@@ -142,6 +156,14 @@ input[type="checkbox"] {
   line-height: 33px;
   padding: 20px;
   width: 65%;
+}
+
+#layout-button {
+  border-radius: 6px;
+  font-size: 20px;
+  margin-top: 20px;
+  padding: 9px;
+  width: 450px;
 }
 
 #login-button {
@@ -212,9 +234,7 @@ input[type="checkbox"] {
   padding: 11px;
   width: 170px;
 }
-#landing-buttons {
-  margin-left: 500px;
-}
+
 #top-landing-button-1 {
   border: none;
   background-color: transparent;
@@ -239,6 +259,10 @@ input[type="checkbox"] {
   font-size: 50px;
   font-weight: bold;
   margin-bottom: 50px;
+}
+
+#you {
+  color: white;
 }
 
 /* Mobile Styles */

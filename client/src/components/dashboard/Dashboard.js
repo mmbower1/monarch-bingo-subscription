@@ -71,8 +71,8 @@ const Dashboard = ({ auth: { user } }) => {
                                 onChange={e => onChange(e)}
                             />
                             {/* <DashboardButton className="btn" type="submit">EDIT</DashboardButton> */}
-                            <input id='dashboard-button' type="submit" value="EDIT" />
                         </FormGroupContainer>
+                        <input id='dashboard-button' type="submit" value="EDIT" />
                     </form>
                     <Footer>© 2019 Copyright Bitcoin Bingo, all rights reserved</Footer>
                 </DashboardInner>

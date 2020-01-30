@@ -49,7 +49,6 @@ const Register = ({ register, isAuthenticated }) => {
             <br />
             <br />
                 <RegisterInner>
-                    
                     {/* <p className="title"> CREATE YOUR ACCOUNT</p> */}
                     <form className="form" onSubmit={e => onSubmit(e)}>
                         <FormGroupContainer>
@@ -102,6 +101,7 @@ const Register = ({ register, isAuthenticated }) => {
                                 onChange={(e) => onChange(e)}
                             />
                         </FormGroupContainer>
+                        <br />
                         <input type="checkbox" value={subscription} /> Subscribe to our newsletter for my chance at free Bingo cards and BIG rewards!
                         <br /><br />
                         <input id='register-button' type="submit" value="REGISTER" />
