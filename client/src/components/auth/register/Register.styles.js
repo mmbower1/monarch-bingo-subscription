@@ -37,7 +37,7 @@ export const RegisterContainer = styled.div`
     height: 140vh;
     @media (max-width: 700px) {
         margin: auto;
-        height: 165vh;
+        height: 190vh;
     }
 `;
 

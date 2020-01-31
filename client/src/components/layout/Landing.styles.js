@@ -12,7 +12,7 @@ export const LandingBody = styled.div`
     font-family: "Roboto", sans-serif;
     line-height: 1.6;
     @media (max-width: 768px) {
-        height: 170vh;
+        height: 130vh;
     }
 
 `;
@@ -35,7 +35,7 @@ export const LandingInner = styled.div`
     text-align: center;
     width: 60%;
     @media (max-width: 768px) {
-        height: 150vh;
+        height: 120vh;
         text-align: center;
         width: 90%;
     }

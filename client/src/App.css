@@ -89,6 +89,14 @@ a {
   padding: 5px 27px;
 }
 
+
+.dashboard-title {
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+
 input[type="checkbox"] {
   width: 15px;
   height: 15px;
@@ -97,9 +105,9 @@ input[type="checkbox"] {
 /* Overlay */
 .form-control {
   border-radius: 6px;
-  font-size: 10px;
+  font-size: 15px;
   margin-bottom: 15px;
-  padding: 5px;
+  padding: 8px;
   width: 320px;
   text-align: center;
 }
@@ -161,9 +169,9 @@ input[type="checkbox"] {
 #layout-button {
   border-radius: 6px;
   display: block;
-  font-size: 10px;
+  font-size: 15px;
   margin-top: 10px;
-  padding: 6px;
+  padding: 9px;
   width: 320px;
 }
 
@@ -293,6 +301,18 @@ input[type="checkbox"] {
     text-decoration: underline;
   }
 
+  #dashboard-button {
+    font-size: 14px;
+    padding: 10px 23px;
+  }
+
+  .dashboard-title {
+    color: white;
+    margin-left: 65px;
+    font-size: 22px;
+    font-weight: bold;
+  }
+
   .footer {
     font-size: 13px;
   }
@@ -324,13 +344,15 @@ input[type="checkbox"] {
   }
 
   #landing-buttons {
-    align-items: center;
+    display: flex;
+    margin-left: 95px;
   }
   #top-landing-button-1 {
     font: 10px;
   }
   #top-landing-button-2 {
     font: 10px;
+    padding: 0 15px;
   }
 
   .landing-img {

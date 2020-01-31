@@ -71,7 +71,7 @@ const Dashboard = ({ auth: { user } }) => {
                         </FormGroupContainer>
                         <input id='dashboard-button' type="submit" value="EDIT" />
                     </form>
-                    <Footer>© 2019 Copyright Bitcoin Bingo, all rights reserved</Footer>
+                    {/* <Footer>© 2019 Copyright Bitcoin Bingo, all rights reserved</Footer> */}
                 </DashboardInner>
             </div>
         </DashboardContainer>

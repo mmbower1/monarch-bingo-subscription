@@ -92,12 +92,20 @@ const Landing = () => {
             <LandingEnd>Join our community to get access to FREE games<br /> when we launch!</LandingEnd>
             <form action="api/subscription" method="POST" onSubmit={e => onSubmit(e)}>
               <FormGroupContainer>
+                {/* <input
+                  type="text"
+                  name="username"
+                  id="username"
+                  className="form-control"
+                  placeholder="NAME"
+                  onChange={e => onChange(e)}
+                /> */}
                 <input
                   type="email"
                   name="email"
                   id="email"
                   className="form-control"
-                  placeholder="Email"
+                  placeholder="EMAIL"
                   onChange={e => onChange(e)}
                   required
                 />

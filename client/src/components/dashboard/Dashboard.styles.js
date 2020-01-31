@@ -4,7 +4,7 @@ export const DashboardContainer = styled.div`
     /* background: url('../img/showcase.jpg') no-repeat center center/cover; */
     height: 110vh;
     @media (max-width: 700px) {
-        height: 190vh;
+        height: 150vh;
     }
 `;
 

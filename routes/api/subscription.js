@@ -17,7 +17,7 @@ const SendXRestApi = require('send_x_rest_api');
 router.post(
     '/',
     [
-        check('username', 'Name is required').not().isEmpty(),
+        // check('username', 'Name is required').not().isEmpty(),
         check('email', 'Please include a valid email').isEmail(),
     ],
     async (req, res) => {
@@ -25,14 +25,12 @@ router.post(
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
         }
-        
-        
 
-        const { username, email } = req.body;
+        const { email } = req.body;
         console.log(' ');
         console.log('req.body: ', req.body);
 
-        if (!username || !email) {
+        if (!email) {
             return res.status(400);
         }
 
@@ -48,7 +46,6 @@ router.post(
                 return res.status(200).json({ message: 'User already subscribed.', success: false })
             } else {
                 subscriber = new Subscription({
-                    name: username,
                     email: email
                 });
                 await subscriber.save();
@@ -58,7 +55,7 @@ router.post(
                 const sendxTeamId = "55bWYotIVwQvh6K0Rxak5l";
                 const contactDetails = new SendXRestApi.ContactRequest();
                 contactDetails.email = req.body.email;
-                contactDetails.name = req.body.username;
+                // contactDetails.name = req.body.username;
                 contactDetails.birthday = "1989-03-03";
                 contactDetails.customFields = { "": "" };
                 contactDetails.tags = [""];
