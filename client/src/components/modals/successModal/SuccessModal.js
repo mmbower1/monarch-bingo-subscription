@@ -44,9 +44,9 @@ class SuccessModal extends Component {
           <i className="fas fa-thumbs-up fa-2x"></i>
           <br />
           <h6 className="success-modal-writing">Thanks for signing up. :) We don't plan to spam with you emails, we simply want to keep you involved with what is 
-            happening here at Bitcoin Bingo. <br />We will be updating our website over the next weeks and our team will 
+            happening here at Bitcoin Bingo. <br /><br />We will be updating our website over the next weeks and our team will 
             be adding features and content we think you'll love! We also want to keep you informed about our first test game 
-            which will be launching soon! Our mission is to use the most widely played games to help folks get accustomed to crypto. <br />
+            which will be launching soon! Our mission is to use the most widely played games to help folks get accustomed to crypto. <br /><br />
             We know it can be a daunting and crowded space, but we got you covered! At Bitcoin Bingo we aim to be more than 
             a lottery site or another crypto startup. Our goal is to show people how seamless it is to earn crypto by simply playing Bingo. 
             We appreciate your support and interest.
