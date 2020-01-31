@@ -110,14 +110,14 @@ const Landing = () => {
                   required
                 />
                 <button id="layout-button" type="submit" className="btn btn-danger btn-block">GET EARLY ACCESS</button>
-                <div id='landing-buttons'>
+                {/* <div id='landing-buttons'>
                   <button id="top-landing-button-1">
                     <Link to='/login'>LOGIN</Link>
                   </button>
                   <button id='top-landing-button-2'>
                     <Link to='/register'>SIGN-UP</Link>
                   </button>
-                </div>
+                </div> */}
                 <Footer>© 2020 Copyright. Bitcoin Bingo, all rights reserved.</Footer>
               </FormGroupContainer>
             </form>

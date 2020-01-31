@@ -22,7 +22,7 @@ export const BlackBoxLogin = styled.div`
 
 export const LoginContainer = styled.div`
     position: relative;
-    height: 135vh;
+    height: 145vh;
     @media (max-width: 700px) {
         margin: auto;
         height: 160vh;

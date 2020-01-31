@@ -34,7 +34,7 @@ export const RegisterButton = styled.div`
 export const RegisterContainer = styled.div`
     position: relative;
     /* background: url('../img/showcase.jpg') no-repeat center center/cover; */
-    height: 140vh;
+    height: 170vh;
     @media (max-width: 700px) {
         margin: auto;
         height: 190vh;
