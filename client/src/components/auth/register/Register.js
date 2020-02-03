@@ -23,9 +23,15 @@ const Register = ({ register, isAuthenticated }) => {
         subscription: false
     });
 
-    const { name, email, btcAddress, password, password2, subscription } = formData;
+    let { name, email, btcAddress, password, password2, subscription } = formData;
 
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value })
+
+    const checkboxChange = e => {
+        let value = e.target.checked;
+        // needs all formData props to proceed using spread operator
+        setFormData({ ...formData, subscription: value });
+    }
 
     const onSubmit = async e => {
         e.preventDefault();
@@ -98,7 +104,12 @@ const Register = ({ register, isAuthenticated }) => {
                             />
                         </FormGroupContainer>
                         <br />
-                        <input type="checkbox" value={subscription} /> Subscribe to our newsletter for my chance at free Bingo cards and BIG rewards!
+                        <input
+                            type="checkbox"
+                            name="subscription"
+                            value={formData.subscription || false}
+                            onChange={(e) => checkboxChange(e)}
+                        /> Subscribe to our newsletter for my chance at free Bingo cards and BIG rewards!
                         <br /><br />
                         <input id='register-button' type="submit" value="REGISTER" />
                     </form>
