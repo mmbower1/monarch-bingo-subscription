@@ -21,6 +21,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.7.7",
     "nodemailer": "^6.3.1",
+    "path": "^0.12.7",
     "react-modal": "^3.11.1",
     "request": "^2.88.0",
     "send_x_rest_api": "^1.0.0",
